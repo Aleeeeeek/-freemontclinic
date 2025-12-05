@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Referral Form | Freemont Clinic</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=DM+Sans:wght@400;500&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      line-height: 1.5;
+      color: #333;
+      background: #f5f5f5;
+    }
+    
+    .page {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 20px auto;
+      background: white;
+      padding: 0.75in;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    @media print {
+      body {
+        background: white;
+      }
+      .page {
+        margin: 0;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+      }
+      .no-print {
+        display: none !important;
+      }
+      input, textarea {
+        border: none !important;
+        border-bottom: 1px solid #333 !important;
+      }
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 30px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #4a7c6f;
+    }
+    
+    .header h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: #4a7c6f;
+      margin-bottom: 5px;
+    }
+    
+    .header p {
+      color: #666;
+      font-size: 11px;
+    }
+    
+    .section {
+      margin-bottom: 25px;
+    }
+    
+    .section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      color: #4a7c6f;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e0e0e0;
+    }
+    
+    .form-row {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding-left: 10px;
+    }
+    
+    .form-row label {
+      white-space: nowrap;
+      font-size: 11px;
+    }
+    
+    .form-input {
+      flex: 1;
+      border: none;
+      border-bottom: 1px solid #333;
+      background: transparent;
+      outline: none;
+      font-size: 11px;
+      font-family: inherit;
+      padding: 2px 4px;
+    }
+    
+    .form-input:focus {
+      border-bottom-color: #4a7c6f;
+    }
+    
+    .checkbox-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding-left: 10px;
+      margin-bottom: 15px;
+    }
+    
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+    }
+    
+    .checkbox-item input {
+      width: 14px;
+      height: 14px;
+      accent-color: #4a7c6f;
+      cursor: pointer;
+    }
+    
+    .checkbox-item span {
+      font-size: 11px;
+    }
+    
+    .others-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding-left: 10px;
+      margin-top: 10px;
+    }
+    
+    .form-textarea {
+      width: 100%;
+      height: 100px;
+      border: 1px solid #333;
+      background: transparent;
+      outline: none;
+      font-size: 11px;
+      font-family: inherit;
+      padding: 8px;
+      resize: none;
+      margin-left: 10px;
+    }
+    
+    .form-textarea:focus {
+      border-color: #4a7c6f;
+    }
+    
+    .footer {
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 2px solid #4a7c6f;
+      text-align: center;
+    }
+    
+    .footer p {
+      font-size: 11px;
+      color: #666;
+      margin-bottom: 5px;
+    }
+    
+    .footer a {
+      color: #4a7c6f;
+      text-decoration: none;
+    }
+    
+    .footer a:hover {
+      text-decoration: underline;
+    }
+    
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #4a7c6f;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    
+    .print-btn:hover {
+      background: #3d665b;
+    }
+    
+    .back-btn {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: white;
+      color: #4a7c6f;
+      border: 1px solid #4a7c6f;
+      padding: 12px 24px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 14px;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    
+    .back-btn:hover {
+      background: #4a7c6f;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="../index.html" class="back-btn no-print">← Back to Website</a>
+  <button class="print-btn no-print" onclick="window.print()">Print / Save as PDF</button>
+
+  <div class="page">
+    <header class="header">
+      <h1>Freemont Clinic</h1>
+      <p>Psychotherapy Referral Form</p>
+    </header>
+
+    <section class="section">
+      <h2>Patient Information</h2>
+      <div class="form-row">
+        <label>Patient's Name:</label>
+        <input type="text" class="form-input" />
+      </div>
+      <div class="form-row">
+        <label>Contact Number:</label>
+        <input type="text" class="form-input" />
+      </div>
+      <div class="form-row">
+        <label>UCI – Insurance Number:</label>
+        <input type="text" class="form-input" />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Diagnosis & Additional Details (Please specify)</h2>
+      <div class="checkbox-grid">
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Anxiety</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Depression</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Stress</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Trauma and PTSD</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Relationship Issues</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Life Transitions</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Mood Disorders</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Family Conflict</span>
+        </label>
+        <label class="checkbox-item">
+          <input type="checkbox" />
+          <span>Anger Management</span>
+        </label>
+      </div>
+      <div class="others-row">
+        <input type="checkbox" style="width: 14px; height: 14px; accent-color: #4a7c6f;" />
+        <span>Others (please specify the diagnostics):</span>
+        <input type="text" class="form-input" />
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Comments</h2>
+      <p style="margin-bottom: 8px; padding-left: 10px; font-size: 11px;">Comments:</p>
+      <textarea class="form-textarea"></textarea>
+    </section>
+
+    <section class="section">
+      <h2>Referrer Information</h2>
+      <div class="form-row">
+        <label>Referring Practitioner:</label>
+        <input type="text" class="form-input" />
+      </div>
+      <div class="form-row">
+        <label>Contact Information:</label>
+        <input type="text" class="form-input" />
+      </div>
+      <div class="form-row">
+        <label>Referral Date:</label>
+        <input type="text" class="form-input" />
+      </div>
+      <div class="form-row">
+        <label>Signature:</label>
+        <input type="text" class="form-input" />
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>Email: <a href="mailto:info@freemontclinic.com">info@freemontclinic.com</a></p>
+      <p>Website: <a href="https://freemontclinic.com" target="_blank">freemontclinic.com</a></p>
+    </footer>
+  </div>
+
+</body>
+</html>
