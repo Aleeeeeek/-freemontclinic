@@ -15,68 +15,113 @@
     
     body {
       font-family: 'DM Sans', sans-serif;
-      font-size: 12px;
-      line-height: 1.5;
-      color: #333;
+      font-size: 15px;
+      line-height: 1.45;
+      color: #1a2520;
       background: #f5f5f5;
     }
     
     .page {
       width: 8.5in;
-      min-height: 11in;
+      height: 11in;
       margin: 20px auto;
       background: white;
-      padding: 0.75in;
+      padding: 0.45in 0.55in;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
     
     @media print {
+      @page {
+        size: letter;
+        margin: 0;
+      }
       body {
         background: white;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
       }
       .page {
         margin: 0;
         box-shadow: none;
         width: 100%;
-        min-height: auto;
+        height: 100%;
+        padding: 0.4in 0.5in;
       }
       .no-print {
         display: none !important;
       }
       input, textarea {
         border: none !important;
-        border-bottom: 1px solid #333 !important;
+        border-bottom: 1px solid #1a2520 !important;
+      }
+      .form-textarea {
+        border: 1px solid #1a2520 !important;
       }
     }
     
     .header {
-      text-align: center;
-      margin-bottom: 30px;
-      padding-bottom: 20px;
-      border-bottom: 2px solid #4a7c6f;
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 3px solid #2d5a4e;
+    }
+    
+    .header-logo {
+      width: 75px;
+      height: auto;
+    }
+    
+    .header-info {
+      flex: 1;
     }
     
     .header h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 28px;
-      color: #4a7c6f;
-      margin-bottom: 5px;
+      font-size: 30px;
+      color: #2d5a4e;
+      margin-bottom: 3px;
     }
     
-    .header p {
-      color: #666;
-      font-size: 11px;
+    .header-subtitle {
+      font-size: 17px;
+      font-weight: 500;
+      color: #1a2520;
+      margin-bottom: 7px;
+    }
+    
+    .header-contact {
+      font-size: 14px;
+      color: #3d4f48;
+      line-height: 1.5;
+    }
+    
+    .header-contact a {
+      color: #2d5a4e;
+      text-decoration: none;
     }
     
     .section {
-      margin-bottom: 25px;
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    
+    .section.comments-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
     
     .section h2 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 16px;
-      color: #4a7c6f;
-      margin-bottom: 15px;
+      font-size: 17px;
+      font-weight: 600;
+      color: #2d5a4e;
+      margin-bottom: 12px;
       padding-bottom: 5px;
       border-bottom: 1px solid #e0e0e0;
     }
@@ -84,121 +129,126 @@
     .form-row {
       display: flex;
       align-items: flex-end;
-      gap: 8px;
-      margin-bottom: 12px;
-      padding-left: 10px;
+      gap: 10px;
+      margin-bottom: 13px;
+      padding-left: 12px;
     }
     
     .form-row label {
       white-space: nowrap;
-      font-size: 11px;
+      font-size: 15px;
+      font-weight: 500;
+      color: #1a2520;
     }
     
     .form-input {
       flex: 1;
       border: none;
-      border-bottom: 1px solid #333;
+      border-bottom: 1px solid #1a2520;
       background: transparent;
       outline: none;
-      font-size: 11px;
+      font-size: 15px;
       font-family: inherit;
-      padding: 2px 4px;
+      padding: 3px 5px;
+      color: #1a2520;
     }
     
     .form-input:focus {
-      border-bottom-color: #4a7c6f;
+      border-bottom-color: #2d5a4e;
+      border-bottom-width: 2px;
     }
     
     .checkbox-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-      padding-left: 10px;
-      margin-bottom: 15px;
+      gap: 11px;
+      padding-left: 12px;
+      margin-bottom: 11px;
     }
     
     .checkbox-item {
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       cursor: pointer;
     }
     
     .checkbox-item input {
-      width: 14px;
-      height: 14px;
-      accent-color: #4a7c6f;
+      width: 18px;
+      height: 18px;
+      accent-color: #2d5a4e;
       cursor: pointer;
     }
     
     .checkbox-item span {
-      font-size: 11px;
+      font-size: 15px;
+      color: #1a2520;
     }
     
     .others-row {
       display: flex;
       align-items: center;
-      gap: 8px;
-      padding-left: 10px;
+      gap: 10px;
+      padding-left: 12px;
       margin-top: 10px;
+    }
+    
+    .others-row input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: #2d5a4e;
+    }
+    
+    .others-row span {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1a2520;
+    }
+    
+    .textarea-wrapper {
+      flex: 1;
+      display: flex;
+      padding-left: 12px;
+      padding-right: 12px;
     }
     
     .form-textarea {
       width: 100%;
-      height: 100px;
-      border: 1px solid #333;
+      flex: 1;
+      min-height: 90px;
+      border: 1px solid #1a2520;
       background: transparent;
       outline: none;
-      font-size: 11px;
+      font-size: 15px;
       font-family: inherit;
-      padding: 8px;
+      padding: 10px;
       resize: none;
-      margin-left: 10px;
+      color: #1a2520;
     }
     
     .form-textarea:focus {
-      border-color: #4a7c6f;
-    }
-    
-    .footer {
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 2px solid #4a7c6f;
-      text-align: center;
-    }
-    
-    .footer p {
-      font-size: 11px;
-      color: #666;
-      margin-bottom: 5px;
-    }
-    
-    .footer a {
-      color: #4a7c6f;
-      text-decoration: none;
-    }
-    
-    .footer a:hover {
-      text-decoration: underline;
+      border-color: #2d5a4e;
+      border-width: 2px;
     }
     
     .print-btn {
       position: fixed;
       top: 20px;
       right: 20px;
-      background: #4a7c6f;
+      background: #2d5a4e;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 16px 32px;
       border-radius: 4px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 17px;
+      font-weight: 500;
       transition: background 0.3s;
     }
     
     .print-btn:hover {
-      background: #3d665b;
+      background: #1e4238;
     }
     
     .back-btn {
@@ -206,19 +256,20 @@
       top: 20px;
       left: 20px;
       background: white;
-      color: #4a7c6f;
-      border: 1px solid #4a7c6f;
-      padding: 12px 24px;
+      color: #2d5a4e;
+      border: 2px solid #2d5a4e;
+      padding: 14px 28px;
       border-radius: 4px;
       cursor: pointer;
       font-family: inherit;
-      font-size: 14px;
+      font-size: 17px;
+      font-weight: 500;
       text-decoration: none;
       transition: all 0.3s;
     }
     
     .back-btn:hover {
-      background: #4a7c6f;
+      background: #2d5a4e;
       color: white;
     }
   </style>
@@ -230,8 +281,16 @@
 
   <div class="page">
     <header class="header">
-      <h1>Freemont Clinic</h1>
-      <p>Psychotherapy Referral Form</p>
+      <img src="./freemont-logo.png" alt="Freemont Clinic Logo" class="header-logo" />
+      <div class="header-info">
+        <h1>Freemont Clinic</h1>
+        <p class="header-subtitle">Psychotherapy Referral Form</p>
+        <div class="header-contact">
+          <span>Phone: (555) 123-4567</span> &nbsp;|&nbsp;
+          <span>Email: <a href="mailto:info@freemontclinic.com">info@freemontclinic.com</a></span> &nbsp;|&nbsp;
+          <span>Website: <a href="https://freemontclinic.com">freemontclinic.com</a></span>
+        </div>
+      </div>
     </header>
 
     <section class="section">
@@ -291,16 +350,17 @@
         </label>
       </div>
       <div class="others-row">
-        <input type="checkbox" style="width: 14px; height: 14px; accent-color: #4a7c6f;" />
-        <span>Others (please specify the diagnostics):</span>
+        <input type="checkbox" />
+        <span>Others (please specify):</span>
         <input type="text" class="form-input" />
       </div>
     </section>
 
-    <section class="section">
+    <section class="section comments-section">
       <h2>Comments</h2>
-      <p style="margin-bottom: 8px; padding-left: 10px; font-size: 11px;">Comments:</p>
-      <textarea class="form-textarea"></textarea>
+      <div class="textarea-wrapper">
+        <textarea class="form-textarea"></textarea>
+      </div>
     </section>
 
     <section class="section">
@@ -323,10 +383,6 @@
       </div>
     </section>
 
-    <footer class="footer">
-      <p>Email: <a href="mailto:info@freemontclinic.com">info@freemontclinic.com</a></p>
-      <p>Website: <a href="https://freemontclinic.com" target="_blank">freemontclinic.com</a></p>
-    </footer>
   </div>
 
 </body>
