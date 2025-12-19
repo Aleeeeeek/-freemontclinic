@@ -99,6 +99,14 @@
       color: #3d4f48;
       line-height: 1.5;
     }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 40px;
+      row-gap: 4px;
+    }
+
     
     .header-contact a {
       color: #2d5a4e;
@@ -285,13 +293,11 @@
       <div class="header-info">
         <h1>Freemont Clinic</h1>
         <p class="header-subtitle">Psychotherapy Referral Form</p>
-        <div class="header-contact">
-          
-          <span>Fax: (647) 930-3569</span> &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-          <span>Email: <a href="mailto:freemontclinic@hotmail.com ">freemontclinic@hotmail.com </a></span> &nbsp;|&nbsp;
-          <span>Phone: (416) 560-3675</span> &emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;
-          <span>Website: <a href="https://freemontclinic.com">freemontclinic.com</a></span>
-          
+        <div class="header-contact contact-grid">
+          <div>Fax: (647) 930-3569</div>
+          <div>Email: <a href="mailto:freemontclinic@hotmail.com">freemontclinic@hotmail.com</a></div>
+          <div>Phone: (416) 560-3675</div>
+          <div>Website: <a href="https://freemontclinic.com">freemontclinic.com</a></div>
         </div>
       </div>
     </header>
